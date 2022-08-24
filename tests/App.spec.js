@@ -1,7 +1,7 @@
 import {login, pass} from './user.js';
 import { faker } from '@faker-js/faker';
 
-const { test, chromium } = require("@playwright/test");
+const { test, chromium, expect } = require("@playwright/test");
 
 test("happyPath", async () => {
   const browser = await chromium.launch({
@@ -19,8 +19,9 @@ test("happyPath", async () => {
   await page.locator('[placeholder="Пароль"]').fill(pass);
 
   await page.locator('[data-testid="login-submit-btn"]').click();
-  
-  await page.locator('text=Мои курсы и профессии')
+
+  const selector = page.locator(h2);
+  await expect(selector).toHaveText("Мои курсы и профессии");
 
   
 });
@@ -41,7 +42,9 @@ test("unHappyPath", async () => {
   await page.locator('[placeholder="Email"]').fill(randomEmail);
   await page.locator('[placeholder="Пароль"]').fill("password");
 
-  await page.locator('[data-testid="login-error-hint"]')
+  const errorMessage = page.locator('[data-testid="login-error-hint"]');
+
+  await expect(errorMessage).toHaveText("Вы ввели неправильно логин или пароль");
 
   
 });
