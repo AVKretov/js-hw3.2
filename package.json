@@ -1,0 +1,28 @@
+{
+  "name": "jsaqa_3_2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^7.4.0",
+    "@playwright/test": "^1.25.0",
+    "playwright": "^1.25.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AVKretov/js-hw3.2.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/AVKretov/js-hw3.2/issues"
+  },
+  "homepage": "https://github.com/AVKretov/js-hw3.2#readme",
+  "description": ""
+}
